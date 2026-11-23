@@ -18,8 +18,16 @@ export default async (req) => {
         await db.execute("INSERT INTO notes (name) VALUES (?)", [clean]);
       }
     }
+
+    if (req.method === "DELETE") {
+      const { id } = await req.json();
+      if (id) {
+        await db.execute("DELETE FROM notes WHERE id = ?", [id]);
+      }
+    }
+
     const [rows] = await db.execute(
-      "SELECT name, created_at FROM notes ORDER BY id DESC LIMIT 50"
+      "SELECT id, name, created_at FROM notes ORDER BY id DESC LIMIT 50"
     );
     return Response.json(rows);
   } catch (err) {
