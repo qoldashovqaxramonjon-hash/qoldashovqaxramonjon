@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liquid Glass • Yangi yil chiroqlari</title>
+  <title>ADU • Liquid Glass</title>
   <style>
     * {
       box-sizing: border-box;
@@ -20,7 +20,7 @@
       background: #060913;
       overflow: hidden;
       position: relative;
-      padding: 28px;
+      padding: 24px;
       color: #ffffff;
     }
 
@@ -83,13 +83,119 @@
       }
     }
 
+    /* Chap yuqori burchakdagi ADU logotipi */
+    .adu-logo-badge {
+      position: fixed;
+      top: 22px;
+      left: 22px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 10px;
+      border-radius: 22px;
+      text-decoration: none;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Shisha yaltirash nuri */
+    .adu-logo-badge::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      transform: skewX(-25deg);
+      transition: left 0.65s ease;
+    }
+
+    .adu-logo-badge:hover::after {
+      left: 160%;
+    }
+
+    /* Ustiga kelganda noodatiy kengayish va nur taratish */
+    .adu-logo-badge:hover {
+      padding-right: 20px;
+      transform: translateY(-2px) scale(1.04);
+      border-color: rgba(0, 242, 254, 0.8);
+      box-shadow:
+        0 16px 38px rgba(0, 242, 254, 0.35),
+        0 0 25px rgba(79, 172, 254, 0.45),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    }
+
+    .adu-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .adu-logo-badge:hover .adu-icon-wrap {
+      transform: rotate(-8deg) scale(1.1);
+    }
+
+    .adu-icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .adu-title-box {
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .adu-logo-badge:hover .adu-title-box {
+      max-width: 240px;
+      opacity: 1;
+      margin-left: 12px;
+    }
+
+    .adu-title-box strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+    }
+
+    .adu-title-box span {
+      display: block;
+      font-size: 11px;
+      color: #7dd3fc;
+      margin-top: 2px;
+    }
+
     /* Liquid Glass asosiy oyna */
     .liquid-card {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 490px;
-      padding: 40px 34px;
+      max-width: 480px;
+      padding: 36px 32px;
       border-radius: 32px;
       background: linear-gradient(
         135deg,
@@ -98,99 +204,21 @@
       );
       backdrop-filter: blur(28px) saturate(180%);
       -webkit-backdrop-filter: blur(28px) saturate(180%);
-      border: 1.5px solid rgba(255, 255, 255, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       box-shadow:
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        inset 0 1px 1px rgba(255, 255, 255, 0.65),
+        0 25px 50px rgba(0, 0, 0, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
         inset 0 -1px 2px rgba(255, 255, 255, 0.15);
     }
 
-    /* Yangi yil chiroqlari qatori (4 tomonlama) */
-    .lights-top, .lights-bottom {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      display: flex;
-      justify-content: space-between;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .lights-top { top: -8px; }
-    .lights-bottom { bottom: -8px; }
-
-    .lights-left, .lights-right {
-      position: absolute;
-      top: 26px;
-      bottom: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .lights-left { left: -8px; }
-    .lights-right { right: -8px; }
-
-    /* Har bir chiroqcha dizayni */
-    .bulb {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      position: relative;
-      animation: twinkle 1.6s infinite alternate ease-in-out;
-    }
-
-    .bulb::after {
+    .liquid-card::before {
       content: '';
       position: absolute;
-      top: 2px;
-      left: 3px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.85);
-    }
-
-    /* Chiroqlarning ranglari */
-    .c-red {
-      background: #ff2a5f;
-      box-shadow: 0 0 12px #ff2a5f, 0 0 24px #ff2a5f;
-      animation-delay: 0s;
-    }
-    .c-gold {
-      background: #ffd000;
-      box-shadow: 0 0 12px #ffd000, 0 0 24px #ffd000;
-      animation-delay: 0.4s;
-    }
-    .c-green {
-      background: #00ff88;
-      box-shadow: 0 0 12px #00ff88, 0 0 24px #00ff88;
-      animation-delay: 0.8s;
-    }
-    .c-blue {
-      background: #00d2ff;
-      box-shadow: 0 0 12px #00d2ff, 0 0 24px #00d2ff;
-      animation-delay: 1.2s;
-    }
-    .c-purple {
-      background: #d946ef;
-      box-shadow: 0 0 12px #d946ef, 0 0 24px #d946ef;
-      animation-delay: 0.6s;
-    }
-
-    @keyframes twinkle {
-      0% {
-        opacity: 0.35;
-        transform: scale(0.85);
-        filter: brightness(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1.18);
-        filter: brightness(1.3);
-      }
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
     }
 
     h1 {
@@ -199,13 +227,13 @@
       text-align: center;
       margin-bottom: 6px;
       letter-spacing: -0.5px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     .subtitle {
       text-align: center;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.72);
       margin-bottom: 26px;
     }
 
@@ -280,7 +308,7 @@
     .list-title {
       font-size: 12px;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.6);
       margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -288,7 +316,7 @@
 
     ul {
       list-style: none;
-      max-height: 280px;
+      max-height: 290px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
@@ -349,63 +377,24 @@
     <div class="orb orb-3"></div>
   </div>
 
+  <!-- Chap eng tepada Andijon davlat universiteti logotipi -->
+  <a href="https://adu.uz" target="_blank" class="adu-logo-badge" title="Andijon davlat universiteti">
+    <div class="adu-icon-wrap">
+      <img
+        src="https://wikimedia.org"
+        alt="ADU Logotipi"
+        onerror="this.src='https://adu.uz'"
+      />
+    </div>
+    <div class="adu-title-box">
+      <strong>Andijon davlat universiteti</strong>
+      <span>adu.uz • Rasmiy sahifa</span>
+    </div>
+  </a>
+
   <div class="liquid-card">
-    <!-- Yuqori chiroqlar -->
-    <div class="lights-top">
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-    </div>
-
-    <!-- Pastki chiroqlar -->
-    <div class="lights-bottom">
-      <span class="bulb c-blue"></span>
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-    </div>
-
-    <!-- Chap chiroqlar -->
-    <div class="lights-left">
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-    </div>
-
-    <!-- O'ng chiroqlar -->
-    <div class="lights-right">
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-      <span class="bulb c-green"></span>
-      <span class="bulb c-blue"></span>
-      <span class="bulb c-purple"></span>
-      <span class="bulb c-red"></span>
-      <span class="bulb c-gold"></span>
-    </div>
-
     <h1>Ismingizni qoldiring</h1>
-    <p class="subtitle">Liquid Glass • Bayramona kayfiyat</p>
+    <p class="subtitle">Liquid Glass • Ma’lumotlar bazasi</p>
 
     <div class="input-group">
       <input id="name" placeholder="Ismingiz..." autocomplete="off" />
