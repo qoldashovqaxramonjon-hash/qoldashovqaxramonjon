@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>ADU • Liquid Glass</title>
   <style>
     * {
@@ -12,15 +12,16 @@
     }
 
     body {
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
       background: #060913;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
-      padding: 24px;
+      padding: 20px 16px;
       color: #ffffff;
     }
 
@@ -30,7 +31,8 @@
       inset: 0;
       z-index: 0;
       overflow: hidden;
-      filter: blur(60px);
+      filter: blur(55px);
+      pointer-events: none;
     }
 
     .orb {
@@ -40,30 +42,30 @@
     }
 
     .orb-1 {
-      width: 420px;
-      height: 420px;
+      width: 360px;
+      height: 360px;
       background: radial-gradient(circle, #00f2fe 0%, #4facfe 100%);
       top: -10%;
-      left: 10%;
+      left: -5%;
       animation-duration: 12s;
     }
 
     .orb-2 {
-      width: 480px;
-      height: 480px;
+      width: 400px;
+      height: 400px;
       background: radial-gradient(circle, #f093fb 0%, #f5576c 100%);
       bottom: -15%;
-      right: 8%;
+      right: -10%;
       animation-duration: 16s;
       animation-delay: -3s;
     }
 
     .orb-3 {
-      width: 340px;
-      height: 340px;
+      width: 280px;
+      height: 280px;
       background: radial-gradient(circle, #7f00ff 0%, #e100ff 100%);
       top: 40%;
-      left: 45%;
+      left: 35%;
       animation-duration: 18s;
       animation-delay: -6s;
     }
@@ -74,26 +76,25 @@
         border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
       }
       50% {
-        transform: translate(60px, -40px) scale(1.12) rotate(90deg);
+        transform: translate(40px, -30px) scale(1.1) rotate(90deg);
         border-radius: 60% 40% 45% 55% / 40% 60% 45% 55%;
       }
       100% {
-        transform: translate(-50px, 50px) scale(0.95) rotate(180deg);
+        transform: translate(-35px, 35px) scale(0.95) rotate(180deg);
         border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
       }
     }
 
-    /* Chap yuqori burchakdagi ADU logotipi */
+    /* Chap yuqori burchakdagi ADU logotipi (Kompyuter uchun) */
     .adu-logo-badge {
       position: fixed;
-      top: 22px;
-      left: 22px;
+      top: 20px;
+      left: 20px;
       z-index: 10;
       display: flex;
       align-items: center;
-      gap: 0;
-      padding: 10px;
-      border-radius: 22px;
+      padding: 9px;
+      border-radius: 20px;
       text-decoration: none;
       color: #ffffff;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
@@ -108,7 +109,6 @@
       transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /* Shisha yaltirash nuri */
     .adu-logo-badge::after {
       content: '';
       position: absolute;
@@ -125,10 +125,9 @@
       left: 160%;
     }
 
-    /* Ustiga kelganda noodatiy kengayish va nur taratish */
     .adu-logo-badge:hover {
-      padding-right: 20px;
-      transform: translateY(-2px) scale(1.04);
+      padding-right: 18px;
+      transform: translateY(-2px) scale(1.03);
       border-color: rgba(0, 242, 254, 0.8);
       box-shadow:
         0 16px 38px rgba(0, 242, 254, 0.35),
@@ -137,10 +136,10 @@
     }
 
     .adu-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.92);
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.94);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,7 +150,7 @@
     }
 
     .adu-logo-badge:hover .adu-icon-wrap {
-      transform: rotate(-8deg) scale(1.1);
+      transform: rotate(-8deg) scale(1.08);
     }
 
     .adu-icon-wrap img {
@@ -169,7 +168,7 @@
     }
 
     .adu-logo-badge:hover .adu-title-box {
-      max-width: 240px;
+      max-width: 230px;
       opacity: 1;
       margin-left: 12px;
     }
@@ -178,7 +177,6 @@
       display: block;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.2px;
       color: #ffffff;
     }
 
@@ -195,8 +193,8 @@
       z-index: 1;
       width: 100%;
       max-width: 480px;
-      padding: 36px 32px;
-      border-radius: 32px;
+      padding: 34px 28px;
+      border-radius: 30px;
       background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.16) 0%,
@@ -222,11 +220,11 @@
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
       text-align: center;
       margin-bottom: 6px;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.4px;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -234,19 +232,20 @@
       text-align: center;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .input-group {
       display: flex;
       gap: 10px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     input {
       flex: 1;
-      padding: 14px 18px;
-      border-radius: 18px;
+      min-width: 0;
+      padding: 14px 16px;
+      border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.25);
       background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
@@ -270,8 +269,8 @@
     }
 
     button {
-      padding: 14px 24px;
-      border-radius: 18px;
+      padding: 14px 22px;
+      border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.45);
       background: linear-gradient(
         135deg,
@@ -282,6 +281,7 @@
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
+      white-space: nowrap;
       backdrop-filter: blur(12px);
       box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.25),
@@ -296,9 +296,6 @@
         rgba(255, 255, 255, 0.2)
       );
       transform: translateY(-2px);
-      box-shadow:
-        0 12px 24px rgba(0, 0, 0, 0.35),
-        inset 0 1px 2px rgba(255, 255, 255, 0.9);
     }
 
     button:active {
@@ -316,7 +313,7 @@
 
     ul {
       list-style: none;
-      max-height: 290px;
+      max-height: 270px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
@@ -325,7 +322,7 @@
     }
 
     ul::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
 
     ul::-webkit-scrollbar-thumb {
@@ -337,25 +334,25 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.18);
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
-      padding: 13px 16px;
+      padding: 12px 14px;
       border-radius: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
       font-weight: 600;
+      font-size: 15px;
       color: #ffffff;
       animation: dropIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      transition: background 0.2s;
-    }
-
-    li:hover {
-      background: rgba(255, 255, 255, 0.14);
+      word-break: break-word;
     }
 
     li small {
       font-weight: 400;
-      font-size: 12px;
+      font-size: 11px;
       color: rgba(255, 255, 255, 0.65);
+      text-align: right;
+      flex-shrink: 0;
     }
 
     @keyframes dropIn {
@@ -368,6 +365,78 @@
         transform: translateY(0) scale(1);
       }
     }
+
+    /* TELEFON EKRANLARI UCHUN MAXSUS ADAPTIV QOIDALAR */
+    @media (max-width: 600px) {
+      body {
+        justify-content: flex-start;
+        padding: 16px 14px 28px;
+      }
+
+      /* Logotip telefonda tepada to'liq va chiroyli turadi */
+      .adu-logo-badge {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: 480px;
+        margin-bottom: 16px;
+        padding: 10px 14px;
+      }
+
+      .adu-icon-wrap {
+        width: 40px;
+        height: 40px;
+      }
+
+      .adu-title-box {
+        max-width: 100%;
+        opacity: 1;
+        margin-left: 12px;
+      }
+
+      .adu-title-box strong {
+        font-size: 13.5px;
+      }
+
+      .liquid-card {
+        padding: 26px 20px;
+        border-radius: 26px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .subtitle {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      /* Kiritish maydoni va tugma telefonda ustma-ust qulay joylashadi */
+      .input-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      input, button {
+        width: 100%;
+        padding: 13px 16px;
+        font-size: 16px;
+      }
+
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 12px 14px;
+      }
+
+      li small {
+        text-align: left;
+        font-size: 11px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -377,7 +446,7 @@
     <div class="orb orb-3"></div>
   </div>
 
-  <!-- Chap eng tepada Andijon davlat universiteti logotipi -->
+  <!-- Andijon davlat universiteti logotipi -->
   <a href="https://adu.uz" target="_blank" class="adu-logo-badge" title="Andijon davlat universiteti">
     <div class="adu-icon-wrap">
       <img
