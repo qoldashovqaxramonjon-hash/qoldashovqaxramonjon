@@ -25,7 +25,6 @@
       color: #ffffff;
     }
 
-    /* Orqa fondagi suyuq yorug'lik to'lqinlari */
     .liquid-bg {
       position: fixed;
       inset: 0;
@@ -85,7 +84,7 @@
       }
     }
 
-    /* DOIMIY OCHIQ VA ANIMATSIYALI ADU LOGOTIPI */
+    /* ADU LOGOTIPI */
     .adu-logo-badge {
       position: fixed;
       top: 20px;
@@ -188,12 +187,12 @@
       margin-top: 2px;
     }
 
-    /* Liquid Glass asosiy oyna (toza holatda) */
+    /* Liquid Glass asosiy oyna */
     .liquid-card {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
       padding: 28px 28px 24px;
       border-radius: 30px;
       background: linear-gradient(
@@ -220,7 +219,7 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
     }
 
-    /* FAQAT MUALLIFLIK RAMKASINI AYLANIB TURUVCHI ANIMATSIYA */
+    /* Mualliflik ramkasi animatsiyasi */
     .author-glow-wrapper {
       position: relative;
       width: 100%;
@@ -324,7 +323,7 @@
         inset 0 1px 2px rgba(255, 255, 255, 0.35);
     }
 
-    button {
+    .save-btn {
       padding: 14px 22px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.4);
@@ -345,7 +344,7 @@
       transition: all 0.25s ease;
     }
 
-    button:hover {
+    .save-btn:hover {
       background: linear-gradient(
         135deg,
         rgba(16, 185, 129, 0.7),
@@ -354,7 +353,7 @@
       transform: translateY(-2px);
     }
 
-    button:active {
+    .save-btn:active {
       transform: scale(0.97);
     }
 
@@ -390,7 +389,7 @@
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22);
-      padding: 12px 14px;
+      padding: 11px 14px;
       border-radius: 16px;
       display: flex;
       justify-content: space-between;
@@ -400,11 +399,47 @@
       font-size: 15px;
       color: #ffffff;
       animation: dropIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      word-break: break-word;
+      transition: all 0.25s ease;
+      position: relative;
     }
 
     li:hover {
-      background: rgba(255, 255, 255, 0.11);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    /* Habar ikonkasi va matni */
+    .msg-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    .msg-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .msg-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke: #38bdf8;
+    }
+
+    .msg-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
     .date-badge {
@@ -418,7 +453,6 @@
       border: 1px solid rgba(16, 185, 129, 0.28);
       padding: 4px 9px;
       border-radius: 10px;
-      flex-shrink: 0;
     }
 
     .date-badge svg {
@@ -426,6 +460,47 @@
       height: 13px;
       stroke: #34d399;
       flex-shrink: 0;
+    }
+
+    /* FAQAT USTIGA KELGANDA CHIQADIGAN O'CHIRISH TUGMASI */
+    .delete-btn {
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+      width: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 28px;
+      border-radius: 9px;
+      border: 1px solid rgba(244, 63, 94, 0.5);
+      background: rgba(244, 63, 94, 0.22);
+      color: #fda4af;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    li:hover .delete-btn,
+    li:focus-within .delete-btn {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      width: 28px;
+      margin-left: 2px;
+    }
+
+    .delete-btn:hover {
+      background: rgba(244, 63, 94, 0.85);
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(244, 63, 94, 0.55);
+    }
+
+    .delete-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
     }
 
     .status-footer {
@@ -472,7 +547,7 @@
       }
     }
 
-    /* TELEFON VA KICHIK EKRANLAR UCHUN ADAPTIVLIK */
+    /* TELEFON EKRANLARI UCHUN ADAPTIVLIK */
     @media (max-width: 720px) {
       body {
         justify-content: flex-start;
@@ -484,7 +559,7 @@
         top: auto;
         left: auto;
         width: 100%;
-        max-width: 500px;
+        max-width: 520px;
         margin-bottom: 16px;
         padding: 10px 14px;
       }
@@ -522,7 +597,7 @@
         gap: 10px;
       }
 
-      input, button {
+      input, .save-btn {
         width: 100%;
         padding: 13px 16px;
         font-size: 16px;
@@ -531,8 +606,13 @@
       li {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
+        gap: 8px;
         padding: 12px 14px;
+      }
+
+      .msg-right {
+        width: 100%;
+        justify-content: space-between;
       }
 
       .status-footer {
@@ -553,7 +633,7 @@
     <div class="orb orb-3"></div>
   </div>
 
-  <!-- Doimiy ochiq va animatsiyali Andijon davlat universiteti logotipi -->
+  <!-- Andijon davlat universiteti logotipi -->
   <a href="https://adu.uz" target="_blank" class="adu-logo-badge" title="Andijon davlat universiteti">
     <div class="adu-icon-wrap">
       <svg viewBox="0 0 100 100" xmlns="http://w3.org">
@@ -578,7 +658,6 @@
   </a>
 
   <div class="liquid-card">
-    <!-- FAQAT SHU RAMKANI AYLANIB TURUVCHI ANIMATSIYALI MUALLIFLIK BELGISI -->
     <div class="author-glow-wrapper">
       <div class="author-credit">
         ✨ ADU talabasi <strong>Qoldashov Qaxramonjon</strong> tomonidan yaratildi
@@ -590,7 +669,7 @@
 
     <div class="input-group">
       <input id="name" placeholder="Ismingiz..." autocomplete="off" />
-      <button onclick="add()">Saqlash</button>
+      <button class="save-btn" onclick="add()">Saqlash</button>
     </div>
 
     <div class="list-title">Oxirgi yozilganlar:</div>
@@ -617,12 +696,28 @@
   <script>
     const API = "/.netlify/functions/api";
 
+    const msgIcon = `
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    `;
+
     const calendarIcon = `
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
         <line x1="16" y1="2" x2="16" y2="6"></line>
         <line x1="8" y1="2" x2="8" y2="6"></line>
         <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+    `;
+
+    const trashIcon = `
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 6 5 6 21 6"></polyline>
+        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+        <path d="M10 11v6"></path>
+        <path d="M14 11v6"></path>
+        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
       </svg>
     `;
 
@@ -648,16 +743,38 @@
 
       rows.forEach(r => {
         const li = document.createElement("li");
+        li.tabIndex = 0;
 
+        // Chap qism: Habar ikonkasi + ism
+        const leftDiv = document.createElement("div");
+        leftDiv.className = "msg-left";
+        leftDiv.innerHTML = `<span class="msg-icon">${msgIcon}</span>`;
         const nameSpan = document.createElement("span");
         nameSpan.textContent = r.name;
+        leftDiv.appendChild(nameSpan);
+
+        // O'ng qism: Sana + ustiga kelganda chiqadigan o'chirish tugmasi
+        const rightDiv = document.createElement("div");
+        rightDiv.className = "msg-right";
 
         const dateBadge = document.createElement("span");
         dateBadge.className = "date-badge";
         dateBadge.innerHTML = `${calendarIcon} <span>${new Date(r.created_at).toLocaleString()}</span>`;
 
-        li.appendChild(nameSpan);
-        li.appendChild(dateBadge);
+        const delBtn = document.createElement("button");
+        delBtn.className = "delete-btn";
+        delBtn.title = "Xabarni o‘chirish";
+        delBtn.innerHTML = trashIcon;
+        delBtn.onclick = (e) => {
+          e.stopPropagation();
+          removeNote(r.id, r.name);
+        };
+
+        rightDiv.appendChild(dateBadge);
+        rightDiv.appendChild(delBtn);
+
+        li.appendChild(leftDiv);
+        li.appendChild(rightDiv);
         ul.appendChild(li);
       });
     }
@@ -668,6 +785,17 @@
       if (!name) return;
       await fetch(API, { method: "POST", body: JSON.stringify({ name }) });
       input.value = "";
+      load();
+    }
+
+    async function removeNote(id, name) {
+      const isConfirmed = confirm(`"${name}" xabarini o‘chirishni xohlaysizmi?`);
+      if (!isConfirmed) return;
+
+      await fetch(API, {
+        method: "DELETE",
+        body: JSON.stringify({ id })
+      });
       load();
     }
 
