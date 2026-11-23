@@ -18,7 +18,6 @@
       align-items: center;
       justify-content: center;
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
-      /* Chuqur kosmik Aurora orqa foni */
       background: radial-gradient(circle at top left, #091e2c, #040711 60%, #0d081d 100%);
       overflow-x: hidden;
       position: relative;
@@ -26,7 +25,7 @@
       color: #ffffff;
     }
 
-    /* Yangi Aurora suyuq yorug'lik to'lqinlari */
+    /* Orqa fondagi suyuq yorug'lik to'lqinlari */
     .liquid-bg {
       position: fixed;
       inset: 0;
@@ -86,7 +85,7 @@
       }
     }
 
-    /* Chap yuqori burchakdagi ADU logotipi */
+    /* DOIMIY OCHIQ VA ANIMATSIYALI ADU LOGOTIPI */
     .adu-logo-badge {
       position: fixed;
       top: 20px;
@@ -94,96 +93,99 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      padding: 9px;
-      border-radius: 20px;
+      padding: 10px 20px 10px 10px;
+      border-radius: 22px;
       text-decoration: none;
       color: #ffffff;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04));
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
       backdrop-filter: blur(22px) saturate(180%);
       -webkit-backdrop-filter: blur(22px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.4),
-        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(52, 211, 153, 0.55);
       overflow: hidden;
       cursor: pointer;
-      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: badgePulse 4s infinite ease-in-out;
+      transition: transform 0.35s ease, border-color 0.35s ease;
     }
 
+    /* Doimiy nafas oluvchi neon nur animatsiyasi */
+    @keyframes badgePulse {
+      0%, 100% {
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.4),
+          0 0 15px rgba(16, 185, 129, 0.25),
+          inset 0 1px 1px rgba(255, 255, 255, 0.7);
+      }
+      50% {
+        box-shadow:
+          0 16px 36px rgba(16, 185, 129, 0.35),
+          0 0 26px rgba(6, 182, 212, 0.45),
+          inset 0 1px 2px rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    /* Doimiy o'tib turuvchi shisha yaltirashi */
     .adu-logo-badge::after {
       content: '';
       position: absolute;
       top: 0;
       left: -120%;
-      width: 60%;
+      width: 55%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
       transform: skewX(-25deg);
-      transition: left 0.65s ease;
+      animation: glassSweep 4.5s infinite ease-in-out;
     }
 
-    .adu-logo-badge:hover::after {
-      left: 160%;
+    @keyframes glassSweep {
+      0% { left: -120%; }
+      45%, 100% { left: 170%; }
     }
 
     .adu-logo-badge:hover {
-      padding-right: 18px;
-      transform: translateY(-2px) scale(1.03);
-      border-color: rgba(16, 185, 129, 0.8);
-      box-shadow:
-        0 16px 38px rgba(16, 185, 129, 0.3),
-        0 0 25px rgba(6, 182, 212, 0.4),
-        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+      transform: translateY(-3px) scale(1.03);
+      border-color: rgba(56, 189, 248, 0.9);
     }
 
     .adu-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.95);
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #ffffff, #e2e8f0);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 4px;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      animation: emblemFloat 3.5s infinite ease-in-out;
     }
 
-    .adu-logo-badge:hover .adu-icon-wrap {
-      transform: rotate(-8deg) scale(1.08);
+    @keyframes emblemFloat {
+      0%, 100% { transform: rotate(-4deg) scale(1); }
+      50% { transform: rotate(4deg) scale(1.06); }
     }
 
-    .adu-icon-wrap img {
+    .adu-icon-wrap svg {
       width: 100%;
       height: 100%;
-      object-fit: contain;
     }
 
     .adu-title-box {
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .adu-logo-badge:hover .adu-title-box {
-      max-width: 230px;
-      opacity: 1;
       margin-left: 12px;
+      white-space: nowrap;
     }
 
     .adu-title-box strong {
       display: block;
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 700;
+      letter-spacing: 0.2px;
       color: #ffffff;
     }
 
     .adu-title-box span {
       display: block;
-      font-size: 11px;
+      font-size: 11.5px;
       color: #6ee7b7;
       margin-top: 2px;
     }
@@ -352,7 +354,6 @@
       background: rgba(255, 255, 255, 0.11);
     }
 
-    /* Sana va ikonkali nishon */
     .date-badge {
       display: inline-flex;
       align-items: center;
@@ -374,7 +375,6 @@
       flex-shrink: 0;
     }
 
-    /* Pastki statistika va jonli soat paneli */
     .status-footer {
       margin-top: 20px;
       padding-top: 14px;
@@ -419,8 +419,8 @@
       }
     }
 
-    /* TELEFON EKRANLARI UCHUN ADAPTIV QOIDALAR */
-    @media (max-width: 600px) {
+    /* TELEFON VA KICHIK EKRANLAR UCHUN ADAPTIVLIK */
+    @media (max-width: 720px) {
       body {
         justify-content: flex-start;
         padding: 16px 14px 28px;
@@ -437,18 +437,12 @@
       }
 
       .adu-icon-wrap {
-        width: 40px;
-        height: 40px;
-      }
-
-      .adu-title-box {
-        max-width: 100%;
-        opacity: 1;
-        margin-left: 12px;
+        width: 44px;
+        height: 44px;
       }
 
       .adu-title-box strong {
-        font-size: 13.5px;
+        font-size: 14px;
       }
 
       .liquid-card {
@@ -501,14 +495,27 @@
     <div class="orb orb-3"></div>
   </div>
 
-  <!-- Andijon davlat universiteti logotipi -->
+  <!-- Doimiy ochiq va animatsiyali Andijon davlat universiteti logotipi -->
   <a href="https://adu.uz" target="_blank" class="adu-logo-badge" title="Andijon davlat universiteti">
     <div class="adu-icon-wrap">
-      <img
-        src="https://wikimedia.org"
-        alt="ADU Logotipi"
-        onerror="this.src='https://adu.uz'"
-      />
+      <!-- Ichki vektorli ADU nishoni (hech qachon uzilmaydi) -->
+      <svg viewBox="0 0 100 100" xmlns="http://w3.org">
+        <defs>
+          <linearGradient id="aduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0284c7" />
+            <stop offset="100%" stop-color="#059669" />
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="none" stroke="url(#aduGrad)" stroke-width="5" />
+        <circle cx="50" cy="50" r="39" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3" />
+        <!-- Quyosh nurlari -->
+        <circle cx="50" cy="31" r="9" fill="#f59e0b" />
+        <!-- Ochiq kitob -->
+        <path d="M24 58 Q37 52 50 58 Q63 52 76 58 L76 42 Q63 36 50 42 Q37 36 24 42 Z" fill="url(#aduGrad)" />
+        <line x1="50" y1="42" x2="50" y2="58" stroke="#ffffff" stroke-width="2" />
+        <!-- ADU matni -->
+        <text x="50" y="76" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="16" fill="#0f172a" letter-spacing="1">ADU</text>
+      </svg>
     </div>
     <div class="adu-title-box">
       <strong>Andijon davlat universiteti</strong>
@@ -528,7 +535,6 @@
     <div class="list-title">Oxirgi yozilganlar:</div>
     <ul id="list"></ul>
 
-    <!-- Pastki statistika va jonli soat -->
     <div class="status-footer">
       <div class="stat-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -550,7 +556,6 @@
   <script>
     const API = "/.netlify/functions/api";
 
-    // Taqvim ikonkasi (SVG)
     const calendarIcon = `
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -560,7 +565,6 @@
       </svg>
     `;
 
-    // Jonli soatni yangilab turish
     function updateClock() {
       const now = new Date();
       const timeStr = now.toLocaleTimeString('uz-UZ', {
